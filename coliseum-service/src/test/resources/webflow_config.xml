@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:orm="http://www.springframework.org/schema/orm"
+	xmlns:flow="http://www.springframework.org/schema/webflow-config"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  	http://www.springframework.org/schema/beans/spring-beans.xsd
+  	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+  	http://www.springframework.org/schema/util 
+ 	http://www.springframework.org/schema/util/spring-util.xsd
+ 	http://www.springframework.org/schema/context 
+  	http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+    http://www.springframework.org/schema/orm
+    http://www.springframework.org/schema/orm/spring-orm.xsd
+    http://www.springframework.org/schema/jdbc
+    http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
+    http://www.springframework.org/schema/webflow-config
+    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+
+	<bean id="defaultFlowExecutionListener"
+		class="coliseum.service.DefaultFlowExecutionListener" />
+
+	<bean id="endValidation"
+		class="coliseum.service.ValidationFinalizer" />
+
+	<bean id="mockExternalContext"
+		class="org.springframework.webflow.test.MockExternalContext" />
+
+	<flow:flow-executor id="flowExecutor"
+		flow-registry="flowRegistry">
+		<flow:flow-execution-listeners>
+			<flow:listener ref="defaultFlowExecutionListener" />
+		</flow:flow-execution-listeners>
+	</flow:flow-executor>
+
+	<flow:flow-registry id="flowRegistry">
+		<flow:flow-location-pattern
+			value="/**/process/*_flow.xml" />
+		<flow:flow-location-pattern
+			value="/**/LH_*_flow.xml" />
+	</flow:flow-registry>
+
+</beans>

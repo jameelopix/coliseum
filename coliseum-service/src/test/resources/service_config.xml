@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:orm="http://www.springframework.org/schema/orm"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+  	http://www.springframework.org/schema/beans/spring-beans.xsd
+  	http://www.springframework.org/schema/tx
+    http://www.springframework.org/schema/tx/spring-tx.xsd
+  	http://www.springframework.org/schema/util 
+ 	http://www.springframework.org/schema/util/spring-util.xsd
+ 	http://www.springframework.org/schema/context 
+  	http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/data/jpa
+    http://www.springframework.org/schema/data/jpa/spring-jpa.xsd
+    http://www.springframework.org/schema/orm
+    http://www.springframework.org/schema/orm/spring-orm.xsd
+    http://www.springframework.org/schema/jdbc
+    http://www.springframework.org/schema/jdbc/spring-jdbc.xsd">
+
+	<bean id="baseServiceImpl"
+		class="coliseum.service.BaseServiceImpl" />
+
+	<bean id="studentService" factory-method="create"
+		factory-bean="baseServiceImpl">
+		<constructor-arg type=""
+			value="org.coliseum.service.StudentService"></constructor-arg>
+	</bean>
+
+	<bean id="studentComponent"
+		class="org.coliseum.service.StudentComponentImpl" />
+
+	<bean id="studentValidator"
+		class="org.coliseum.service.StudentValidatorImpl" />
+</beans>

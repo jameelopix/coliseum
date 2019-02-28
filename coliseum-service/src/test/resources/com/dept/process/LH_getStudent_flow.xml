@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flow xmlns="http://www.springframework.org/schema/webflow"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow.xsd">
+
+	<input name="studentServiceRequest" required="true" />
+
+	<action-state id="saveStudent">
+		<evaluate
+			expression="studentValidator.duplicateStudent(studentServiceRequest)" />
+		<evaluate
+			expression="studentValidator.checkStudentAuth(studentServiceRequest)" />
+		<evaluate expression="endValidation" />
+		<evaluate
+			expression="studentComponent.getStudent(studentServiceRequest)"
+			result="flowScope.studentServiceRequest">
+			<attribute name="name" value="getStudent"></attribute>
+		</evaluate>
+		<transition on="getStudent.success" to="exit" />
+	</action-state>
+
+	<end-state id="exit">
+		<output name="studentServiceRequest" />
+	</end-state>
+</flow>
