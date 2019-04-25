@@ -20,8 +20,8 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseBody
-	public BaseWidgetModel handleMethodArgumentNotValidException(MethodArgumentNotValidException error) {
-		BaseWidgetModel widgetModel = new BaseWidgetModel();
+	public BaseClientModel handleMethodArgumentNotValidException(MethodArgumentNotValidException error) {
+		BaseClientModel widgetModel = new BaseClientModel();
 		widgetModel.setErrorMessages(Arrays.asList(error.getMessage()));
 		List<String> errorMessages = new ArrayList<>();
 		for (ObjectError objectError : error.getBindingResult().getAllErrors()) {
@@ -34,8 +34,8 @@ public class GlobalExceptionHandler {
 	@ResponseStatus(value = HttpStatus.INTERNAL_SERVER_ERROR)
 	@ExceptionHandler(BusinessException.class)
 	@ResponseBody
-	public BaseWidgetModel handleBusinessException(BusinessException exception) {
-		BaseWidgetModel widgetModel = new BaseWidgetModel();
+	public BaseClientModel handleBusinessException(BusinessException exception) {
+		BaseClientModel widgetModel = new BaseClientModel();
 		widgetModel.setErrorDTOs(exception.getErrorDTOs());
 		return widgetModel;
 	}

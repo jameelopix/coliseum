@@ -5,7 +5,7 @@ import java.util.List;
 
 import coliseum.service.ErrorDTO;
 
-public class BaseWidgetModel implements Serializable {
+public class BaseClientModel implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 

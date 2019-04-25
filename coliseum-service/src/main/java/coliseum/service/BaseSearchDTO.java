@@ -9,6 +9,8 @@ public class BaseSearchDTO implements Serializable {
 
 	private List<Long> ids;
 
+	public static String ID = "id";
+
 	public List<Long> getIds() {
 		return ids;
 	}

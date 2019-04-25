@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+	xmlns:flow="http://www.springframework.org/schema/webflow-config"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+  	http://www.springframework.org/schema/beans   	http://www.springframework.org/schema/beans/spring-beans.xsd
+  	http://www.springframework.org/schema/tx    http://www.springframework.org/schema/tx/spring-tx.xsd
+  	http://www.springframework.org/schema/util  	http://www.springframework.org/schema/util/spring-util.xsd
+ 	http://www.springframework.org/schema/context   	http://www.springframework.org/schema/context/spring-context.xsd
+    http://www.springframework.org/schema/webflow-config    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd">
+
+	<bean id="conversionService"
+		class="org.springframework.core.convert.support.DefaultConversionService" />
+
+	<bean id="conversionUtility"
+		class="coliseum.service.ConversionUtility" />
+
+	<bean id="baseServiceImpl"
+		class="coliseum.service.BaseServiceImpl" />
+
+	<bean id="defaultFlowExecutionListener"
+		class="coliseum.service.DefaultFlowExecutionListener" />
+
+	<bean id="endValidation"
+		class="coliseum.service.ValidationFinalizer" />
+
+	<flow:flow-executor id="flowExecutor"
+		flow-registry="flowRegistry">
+		<flow:flow-execution-listeners>
+			<flow:listener ref="defaultFlowExecutionListener" />
+		</flow:flow-execution-listeners>
+	</flow:flow-executor>
+
+	<flow:flow-registry id="flowRegistry">
+		<flow:flow-location-pattern
+			value="classpath*:/**/process/*_flow.xml" />
+	</flow:flow-registry>
+</beans>
