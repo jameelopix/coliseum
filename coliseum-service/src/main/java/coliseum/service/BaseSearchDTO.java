@@ -5,17 +5,17 @@ import java.util.List;
 
 public class BaseSearchDTO implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private List<Long> ids;
+    private List<Long> idList;
 
-	public static String ID = "id";
+    public static String ID = "id";
 
-	public List<Long> getIds() {
-		return ids;
-	}
+    public List<Long> getIdList() {
+        return idList;
+    }
 
-	public void setIds(List<Long> ids) {
-		this.ids = ids;
-	}
+    public void setIdList(List<Long> idList) {
+        this.idList = idList;
+    }
 }
