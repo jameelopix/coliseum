@@ -31,11 +31,17 @@ public class FilterUtils {
 
     private static void checkAndCreateEqualFilter(List<Filter> filters, String fieldName, Object value) {
         boolean valueExists = false;
+        if (value == null) {
+            return;
+        }
         if (value instanceof String) {
             String str = (String) value;
             if (!str.trim().isEmpty()) {
                 valueExists = true;
             }
+        }
+        if (value instanceof Enum) {
+            valueExists = true;
         }
         if (valueExists) {
             filters.add(new Filter(fieldName).by(Operator.EQUALS).with(value));
