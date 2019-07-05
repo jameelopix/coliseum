@@ -43,6 +43,9 @@ public class FilterUtils {
         if (value instanceof Enum) {
             valueExists = true;
         }
+        if (value instanceof Long || value instanceof Integer) {
+            valueExists = true;
+        }
         if (valueExists) {
             filters.add(new Filter(fieldName).by(Operator.EQUALS).with(value));
         }
