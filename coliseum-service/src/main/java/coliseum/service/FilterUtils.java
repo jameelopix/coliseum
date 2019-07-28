@@ -43,7 +43,7 @@ public class FilterUtils {
         if (value instanceof Enum) {
             valueExists = true;
         }
-        if (value instanceof Long || value instanceof Integer) {
+        if (value instanceof Long || value instanceof Integer || value instanceof Boolean) {
             valueExists = true;
         }
         if (valueExists) {
