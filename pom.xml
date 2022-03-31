@@ -24,7 +24,7 @@
 		<coliseum.security.version>1.0-SNAPSHOT</coliseum.security.version>
 		<coliseum.shared.version>1.0-SNAPSHOT</coliseum.shared.version>
 
-		<spring.version>5.0.6.RELEASE</spring.version>
+		<spring.version>5.3.18</spring.version>
 		<spring.webflow.version>2.4.7.RELEASE</spring.webflow.version>
 		<spring.security.version>5.0.6.RELEASE</spring.security.version>
 		<spring.data.jpa.version>2.0.0.RELEASE</spring.data.jpa.version>
