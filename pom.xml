@@ -26,7 +26,7 @@
 
 		<spring.version>5.0.6.RELEASE</spring.version>
 		<spring.webflow.version>2.4.7.RELEASE</spring.webflow.version>
-		<spring.security.version>5.0.6.RELEASE</spring.security.version>
+		<spring.security.version>5.5.7</spring.security.version>
 		<spring.data.jpa.version>2.0.0.RELEASE</spring.data.jpa.version>
 		<spring.test.version>4.1.7.RELEASE</spring.test.version>
 		<hibernate.version>5.2.10.Final</hibernate.version>
