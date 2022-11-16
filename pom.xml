@@ -35,7 +35,7 @@
 		<junit.version>4.12</junit.version>
 		<jdk.version>1.8</jdk.version>
 		<mysql.version>8.0.12</mysql.version>
-		<jackson.version>2.9.6</jackson.version>
+		<jackson.version>2.12.7.1</jackson.version>
 
 		<h2.version>1.4.197</h2.version>
 		<dbcp2.version>2.4.0</dbcp2.version>
